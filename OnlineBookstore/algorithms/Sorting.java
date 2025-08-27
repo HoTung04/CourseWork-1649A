@@ -1,22 +1,9 @@
 package algorithms;
 import java.util.List;
-import model.Book;
 import model.Order;
 
 public class Sorting {
-    public static void insertionSort(List<Book> books) {
-        for (int i = 1; i < books.size(); i++) {
-            Book current = books.get(i);
-            int j = i - 1;
-            while (j >= 0 && books.get(j).getTitle().compareTo(current.getTitle()) > 0) {
-                books.set(j + 1, books.get(j));
-                j--;
-            }
-            books.set(j + 1, current);
-        }
-    }
-
-    public static void insertionSortOrdersByBookTitle(List<Order> orders) {
+    public static void insertionSort(List<Order> orders) {
         for (int i = 1; i < orders.size(); i++) {
             Order current = orders.get(i);
             String currentTitle = getPrimaryBookTitle(current);
