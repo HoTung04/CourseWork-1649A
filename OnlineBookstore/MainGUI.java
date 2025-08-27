@@ -149,7 +149,6 @@ public class MainGUI extends JFrame {
     private void processOrder() {
         Order order = orderQueue.dequeue();
         if (order != null) {
-            Sorting.insertionSort(order.getBooks());
             history.push(order);
             FileUtil.save(history, HISTORY_FILE);
             JOptionPane.showMessageDialog(this, "Processed: " + order);
@@ -172,7 +171,7 @@ public class MainGUI extends JFrame {
     private void refreshDisplay() {
         StringBuilder sb = new StringBuilder("Pending Orders:\n");
         List<Order> pendingOrders = orderQueue.getAllOrders();
-        Sorting.insertionSortOrdersByBookTitle(pendingOrders);
+        Sorting.insertionSort(pendingOrders);
         for (Order o : pendingOrders) {
             sb.append(o).append("\n");
         }
